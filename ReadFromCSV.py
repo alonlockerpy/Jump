@@ -1,18 +1,19 @@
 import csv
 import pandas
 
-def setUp():
+def readCSV():
     with open('cars.csv') as f:
         d = dict(filter(None, csv.reader(f)))
         print d
         for test in d.values():
-            print "test: {}".format(test)
+            print "test: " + test
 
+readCSV()
 
 def pandastest():
     df = pandas.read_csv('cars.csv')
     print 'test'
-pandastest()
+#pandastest()
 
 my_dict = {'name': 'ed', 'age': 40, 'hobby': 'run'}
 import json
@@ -46,4 +47,4 @@ def readLog(logFile):
     fp.close()
 
 f_name = 'c:\\test.log'
-readLog(f_name)
+#readLog(f_name)
