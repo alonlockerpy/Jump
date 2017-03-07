@@ -3,11 +3,15 @@ import pandas
 
 def readCSV():
     with open('cars.csv') as f:
-        d = dict(filter(None, csv.reader(f)))
+        d = filter(None, csv.reader(f))
         print d
-        for test in d.values():
-            print "test: " + test
-
+        dd = {}
+        #for test in d.values():
+        #    print "test: " + test
+        for key, val in d:
+            stak = dd.setdefault(key, []).append(val)
+            for test in stak.values():
+                print "test: " + test
 readCSV()
 
 def pandastest():
@@ -46,5 +50,10 @@ def readLog(logFile):
 
     fp.close()
 
-f_name = 'c:\\test.log'
+
+    start=1
+    step=1
+    print(list(range(start, 14, step)))
+
+#f_name = 'c:\\test.log'
 #readLog(f_name)
